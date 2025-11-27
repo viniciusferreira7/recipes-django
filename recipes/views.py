@@ -9,8 +9,8 @@ def home(request: HttpRequest) -> HttpResponse:
     )
 
 
-def recipe(request: HttpRequest) -> HttpResponse:
+def recipe(request: HttpRequest, id: int) -> HttpResponse:
     return render(
         request=request,
-        template_name='recipes/pages/home.html',
+        template_name='recipes/pages/recipe-view.html',
     )

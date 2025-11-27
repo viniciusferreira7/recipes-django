@@ -130,5 +130,7 @@ _local_settings.py
 gunicorn-error-log
 db.sqlite3
 db copy.sqlite3
-static/
+/static/
 /staticfiles
+!recipes/static/
+!recipes/static/**
