@@ -101,10 +101,16 @@
 
 .recipe img {
 	max-width: 100%;
+	width: 100%;
+	height: 266px;
 }
 
 .recipe-list-item {
 	max-width: 64rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .recipe-list-item:hover {
@@ -124,6 +130,7 @@
 .recipe-content {
 	padding: var(--spacing-gutter-medium);
 	padding-top: 2rem;
+	flex: 1;
 }
 
 .recipe-author-item {

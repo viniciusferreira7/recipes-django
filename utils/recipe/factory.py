@@ -56,7 +56,7 @@ def make_recipe() -> Recipe:
         'title': fake.sentence(nb_words=6),
         'description': fake.sentence(nb_words=12),
         'preparation_time': fake.random_number(digits=2, fix_len=True),
-        'preparation_time_unit': 'Minutos',
+        'preparation_time_unit': 'Minutes',
         'servings': fake.random_number(digits=2, fix_len=True),
         'servings_unit': 'Porção',
         'preparation_steps': fake.text(3000),
@@ -70,7 +70,6 @@ def make_recipe() -> Recipe:
         },
         'cover': {
            'url': f"https://loremflickr.com/{rand_ratio()[0]}/{rand_ratio()[1]}/{random_food_tag()}"
-
         }
     }
 
