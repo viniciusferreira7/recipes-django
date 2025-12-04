@@ -18,6 +18,7 @@ def recipe(request: HttpRequest, id: int) -> HttpResponse:
         request=request,
         template_name='recipes/pages/recipe-view.html',
         context={
-            'recipe': make_recipe()
+            'recipe': make_recipe(),
+            'is_detail_page': True
         }
     )
