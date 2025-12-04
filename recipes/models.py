@@ -1,3 +1,20 @@
 from django.db import models
 
-# Create your models here.
+
+class Recipe(models.Model):
+    id = models.UUIDField()
+    title = models.CharField(max_length=65)
+    description = models.CharField(max_length=165)
+    slug = models.SlugField(unique=True)
+    preparation_time = models.IntegerField()
+    preparation_time_unit = models.CharField(max_length=30)
+    servings = models.IntegerField()
+    servings_unit = models.CharField(max_length=30)
+    preparation_steps = models.TextField()
+    is_preparation_steps_html = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_published = models.BooleanField(default=False)
+    cover = models.ImageField(upload_to="recipes/covers/%Y/%m/%d/")
+    category = models.ForeignKey()
+    author = models.ForeignKey()
