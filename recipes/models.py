@@ -1,15 +1,36 @@
 from django.db import models
 
 
+class PreparationTimeUnit(models.TextChoices):
+    MINUTE = "MIN", "Minute"
+    HOUR = "H", "Hour"
+    DAY = "D", "Day"
+
+
+class ServingUnit(models.TextChoices):
+    GRAM = "G", "Gram"
+    MILLILITER = "ML", "Milliliter"
+    UNIT = "UN", "Unit"
+    SLICE = "SL", "Slice"
+
+
 class Recipe(models.Model):
     id = models.UUIDField()
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=165)
     slug = models.SlugField(unique=True)
     preparation_time = models.IntegerField()
-    preparation_time_unit = models.CharField(max_length=30)
+    preparation_time_unit = models.CharField(
+        max_length=30,
+        choices=PreparationTimeUnit.choices,
+        default=PreparationTimeUnit.MINUTE
+    )
     servings = models.IntegerField()
-    servings_unit = models.CharField(max_length=30)
+    servings_unit = models.CharField(
+        max_length=30,
+        choices=ServingUnit.choices,
+        default=ServingUnit.UNIT
+    )
     preparation_steps = models.TextField()
     is_preparation_steps_html = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
