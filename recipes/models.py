@@ -1,6 +1,11 @@
 from django.db import models
 
 
+class Category(models.Model):
+    id = models.UUIDField()
+    name = models.CharField(max_length=65)
+
+
 class PreparationTimeUnit(models.TextChoices):
     MINUTE = "MIN", "Minute"
     HOUR = "H", "Hour"
@@ -37,5 +42,5 @@ class Recipe(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
     cover = models.ImageField(upload_to="recipes/covers/%Y/%m/%d/")
-    category = models.ForeignKey()
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey()
