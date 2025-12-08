@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    id = models.UUIDField(primary_key=True)
+    id = models.UUIDField(primary_key=True,  auto_created=True)
     name = models.CharField(max_length=65)
 
 
@@ -21,7 +21,7 @@ class ServingUnit(models.TextChoices):
 
 
 class Recipe(models.Model):
-    id = models.UUIDField(primary_key=True)
+    id = models.UUIDField(primary_key=True, auto_created=True)
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=165)
     slug = models.SlugField(unique=True)
