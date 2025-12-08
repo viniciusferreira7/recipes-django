@@ -19,8 +19,13 @@ from django.urls import path, include
 
 from typing import List, Union
 from django.urls.resolvers import URLPattern, URLResolver
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns: List[Union[URLPattern, URLResolver]] = [
     path('admin/', admin.site.urls),
     path('', include('recipes.urls'))
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
