@@ -9,7 +9,7 @@ class Category(models.Model):
         auto_created=True,
         editable=False,
         default=uuid.uuid4
-    ),
+    )
     name = models.CharField(max_length=65)
 
     def __str__(self):
@@ -61,7 +61,7 @@ class Recipe(models.Model):
         Category,
         on_delete=models.SET_NULL,
         null=True
-    ),
+    )
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
