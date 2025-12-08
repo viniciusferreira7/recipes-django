@@ -12,6 +12,9 @@ class Category(models.Model):
     ),
     name = models.CharField(max_length=65)
 
+    def __str__(self):
+        return self.name
+
 
 class PreparationTimeUnit(models.TextChoices):
     MINUTE = "MIN", "Minute"
