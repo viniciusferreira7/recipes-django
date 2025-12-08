@@ -1,9 +1,15 @@
+import uuid
 from django.contrib.auth.models import User
 from django.db import models
 
 
 class Category(models.Model):
-    id = models.UUIDField(primary_key=True,  auto_created=True)
+    id = models.UUIDField(
+        primary_key=True,
+        auto_created=True,
+        editable=False,
+        default=uuid.uuid4
+    ),
     name = models.CharField(max_length=65)
 
 
@@ -21,7 +27,12 @@ class ServingUnit(models.TextChoices):
 
 
 class Recipe(models.Model):
-    id = models.UUIDField(primary_key=True, auto_created=True)
+    id = models.UUIDField(
+        primary_key=True,
+        auto_created=True,
+        editable=False,
+        default=uuid.uuid4
+    )
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=165)
     slug = models.SlugField(unique=True)
