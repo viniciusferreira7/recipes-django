@@ -11,6 +11,7 @@ class Category(models.Model):
         default=uuid.uuid4
     )
     name = models.CharField(max_length=65)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
