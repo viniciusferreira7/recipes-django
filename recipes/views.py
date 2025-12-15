@@ -1,24 +1,28 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from utils.recipe.factory import make_recipe
+from recipes.models import Recipe
 
 
 def home(request: HttpRequest) -> HttpResponse:
+    recipes = Recipe.objects.all().order_by("-created_at")
+
     return render(
         request=request,
         template_name='recipes/pages/home.html',
         context={
-            'recipes': [make_recipe() for _ in range(10)]
+            'recipes': recipes
         }
     )
 
 
 def recipe(request: HttpRequest, id: int) -> HttpResponse:
+    recipe = Recipe.objects.filter(id=id)
+
     return render(
         request=request,
         template_name='recipes/pages/recipe-view.html',
         context={
-            'recipe': make_recipe(),
+            'recipe': recipe,
             'is_detail_page': True
         }
     )
