@@ -227,3 +227,54 @@
 		line-height: 24px;
 	}
 }
+
+.category-header {
+	background: var(--color-white);
+	padding: var(--spacing-gutter-large);
+	margin-bottom: var(--spacing-gutter-large);
+	border-radius: 0.4rem;
+	box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+	text-align: center;
+}
+
+.category-title {
+	color: var(--color-primary-dark);
+	font-size: 3.2rem;
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.category-title i {
+	font-size: 2.8rem;
+}
+
+.category-meta {
+	color: var(--color-gray-4);
+	font-style: italic;
+	font-size: 1.6rem;
+	margin: 0;
+}
+
+.category-meta i {
+	margin-right: 0.5rem;
+}
+
+.no-recipes,
+.no-category {
+	background: var(--color-white);
+	padding: var(--spacing-gutter-large);
+	border-radius: 0.4rem;
+	box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+	text-align: center;
+	grid-column: 1 / -1;
+}
+
+.no-recipes p,
+.no-category p {
+	color: var(--color-gray-4);
+	font-size: 1.8rem;
+	margin: 0;
+}

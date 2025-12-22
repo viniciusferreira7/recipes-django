@@ -8,5 +8,9 @@ app_name = "recipes"
 
 urlpatterns: List[Union[URLPattern, URLResolver]] = [
     path('', views.home, name="home"),
-    path('recipes/<int:id>/', views.recipe, name="recipe")
+    path('recipes/<uuid:id>/', views.recipe, name="recipe"),
+    path(
+        'recipes/category/<uuid:category_id>/',
+        views.category,
+        name="category")
 ]
