@@ -5,7 +5,7 @@ from uuid import UUID
 
 
 def home(request: HttpRequest) -> HttpResponse:
-    recipes = Recipe.objects.all().order_by("-created_at")
+    recipes = Recipe.objects.filter(is_published=True).order_by("-created_at")
 
     return render(
         request=request,
@@ -17,7 +17,7 @@ def home(request: HttpRequest) -> HttpResponse:
 
 
 def recipe(request: HttpRequest, id: UUID) -> HttpResponse:
-    recipe = get_object_or_404(Recipe, id=id)
+    recipe = get_object_or_404(Recipe, id=id, is_published=True)
 
     return render(
         request=request,
