@@ -4,7 +4,8 @@
 
 {% block content %}
   <div class="main-container main-content-list container">
-    <div class="category-header">
+   <div>
+     <div class="category-header">
       <h1 class="category-title">
         <i class="fas fa-layer-group"></i>
         {{ category.name|title }}
@@ -17,13 +18,14 @@
       {% endif %}
     </div>
 
-    {% for recipe in recipes %}
-      {% include 'recipes/partials/recipe.html' %}
-    {% empty %}
-      <div class="no-recipes">
-        <p>No recipes found in this category yet.</p>
-      </div>
-    {% endfor %}
-  </div>
+      {% for recipe in recipes %}
+        {% include 'recipes/partials/recipe.html' %}
+      {% empty %}
+        <div class="no-recipes">
+          <p>No recipes found in this category yet.</p>
+        </div>
+      {% endfor %}
+    </div>
+   </div>
 {% endblock content %}
 
