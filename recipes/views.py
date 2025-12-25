@@ -11,6 +11,7 @@ def home(request: HttpRequest) -> HttpResponse:
         request=request,
         template_name='recipes/pages/home.html',
         context={
+            'title': "Home | Recipes",
             'recipes': recipes
         }
     )
@@ -23,6 +24,7 @@ def recipe(request: HttpRequest, id: UUID) -> HttpResponse:
         request=request,
         template_name='recipes/pages/recipe-view.html',
         context={
+            'title': f"{recipe.title} | Recipes",
             'recipe': recipe,
             'is_detail_page': True
         }
@@ -39,6 +41,7 @@ def category(request: HttpRequest, category_id: UUID) -> HttpResponse:
         request=request,
         template_name='recipes/pages/category.html',
         context={
+            'title': f"{category.name} | Categories",
             'category': category,
             'recipes': recipes,
         }
